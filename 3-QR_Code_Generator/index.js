@@ -18,6 +18,11 @@ inquirer
     const url = answers.URL;
     var qr_png = qr.image(url);
     qr_png.pipe(fs.createWriteStream('qr_img.png'));
+
+    fs.writeFile('URL.txt', url, (err) => {
+      if (err) throw err;
+      console.log('The file has been saved!');
+    }); 
   })
   .catch((error) => {
     if (error.isTtyError) {
