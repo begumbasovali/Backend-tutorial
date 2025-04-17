@@ -9,10 +9,15 @@ import fs from 'fs';
 
 inquirer
   .prompt([
-   {
-    "message": "Type in your URL: ",
-    "name": "URL",
-   }
+    {
+      type: 'input',
+      name: 'URL',
+      message: 'Type the URL you want to convert to a QR code:',
+      validate: function (input) {
+        const urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
+        return urlPattern.test(input) || 'Please enter a valid URL.';
+      }
+    }
   ])
   .then((answers) => {
     const url = answers.URL;
