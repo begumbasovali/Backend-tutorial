@@ -11,5 +11,8 @@
     "url": "backend-tutorial"
   },
   "author": "Begum",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "sillyname": "^0.1.0"
+  }
 }
